@@ -1,5 +1,5 @@
-export interface ButtonProps {
+export default interface Props extends React.HTMLAttributes<HTMLButtonElement> {
     label:string;
     disabled?:boolean;
-    color?: 'filled' | 'bordered';
+    variant?: 'filled' | 'bordered';
 }

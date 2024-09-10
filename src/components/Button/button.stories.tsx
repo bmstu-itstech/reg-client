@@ -1,22 +1,34 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import {Meta, StoryObj} from '@storybook/react';
 import Button from './button';
+import Props from "./button.props"
 
 export default {
     title: 'Components/Button',
     component: Button,
-} as Meta<typeof Button>;
+    argTypes:{
+        onClick:{action: 'clicked'},
+    },
+} as Meta<Props>;
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    label: 'Удалить',
-    color: 'filled',
+const testFn = (message:string) =>{
+    console.log(message);
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-    label: 'Мои Боты',
-    color: 'bordered',
-};
+type Story = StoryObj<Props>;
+
+export const Primary: Story = {
+    args: {
+        label: 'Удалить',
+        variant: 'filled',
+        onClick: () => testFn('Primary Button is clicked'),
+    },
+}
+
+export const Secondary : Story = {
+    args: {
+        label: 'Мои Боты',
+        variant: 'bordered',
+        onClick: () => testFn('Primary Button is clicked'),
+    },
+}
