@@ -13,7 +13,8 @@ const Table: FC<Props> = ({params,title, className = '', ...props}) => {
                 <TableHeader left={params[0].left} right={params[0].right} />
                 {params?.slice(1).map((item, index) => {
                 return(
-                    <TableBody left={item.left} right={item.right} options={item.options} className={`${index + 1 != params.length? 'border border-support-separator-gray': ''}`} />
+                    <TableBody left={item.left} right={item.right} options={item.options} 
+                    className={`${index + 1 != params.length? 'border border-support-separator-gray': ''}`} />
                 )
                 })}
     </TableLayout>
